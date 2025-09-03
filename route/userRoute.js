@@ -1,37 +1,18 @@
 const express = require("express");
-const bcrypt = require("bcrypt");
-const userController = require("../controller/userController");
-const userModel = require("../model/userModel");
 const router = express.Router();
+const userController = require("../controller/userController");
 
 
-router.get("/login-user", userController.signPage);
+router.get("/login-user", userController.welcomePage);
 
-// sign-up btn to mainInterface
-router.post("/user-signup", userController.homePage);
+// sign-up btn to login page
+router.post("/user-signup", userController.signupPage);
 
 // log-in btn to mainInterface(notes/index)
-router.post("/user/login", async (req, res) => {
-  const { username, password } = req.body;
+router.post("/user/login", userController.loginPage)
 
-// match username, user input and database
-  const user = await userModel.findOne({ userName: username });
-  if (!user) res.send('username or password is incorrect')
+// log-out btn 
+router.post("/user-logout", userController.logout)
 
-// match password, user input and database
-  let isMatch = await bcrypt.compare(password, user.Password)
-  if (!isMatch) res.send("username or password is incorrect");
-
-  req.session.user = user;
-
-  res.redirect("/mainInterface");
-
-  // log-out btn 
-router.post("/user-logout", async (req, res)  => {
-  req.session.destroy();
-  res.redirect("/")
-})
-
-});
 
 module.exports = router;
