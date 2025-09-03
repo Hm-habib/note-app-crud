@@ -1,0 +1,57 @@
+<h2 class="mb-4 fw-bold text-warning">📋 Notes:
+  <% if (user) { %>
+  <h1>For <%= user.userName %>!</h1>
+  <% } else { %>
+  <h1>Welcome, guest!</h1>
+  <p>Please <a href="/login">log in</a></p>
+  <% } %>
+</h2>
+
+<% if(items.length > 0){ %>
+<div class="table-responsive">
+  <table class="table table-hover table-striped shadow-sm align-middle">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Title</th>
+        <th scope="col">Status</th>
+        <th scope="col" class="text-end">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% items.map((item, i) => { %>
+      <tr>
+        <th scope="row"><%= i + 1 %></th>
+        <td><%= item.title %></td>
+        <td>
+          <span class="badge <%= item.done ? 'bg-success' : 'bg-warning text-dark' %>">
+            <%= item.done ? 'Done' : 'Pending' %>
+          </span>
+        </td>
+        <td class="text-end">
+          <a href="/notes/<%= item._id %>/view" class="btn btn-info btn-sm me-3">View</a>
+          <form action="/notes/<%= item._id %>/delete" method="POST" class="d-inline">
+            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+          </form>
+        </td>
+
+      </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+<% } else { %>
+<div class="alert alert-warning" role="alert">
+  There are no notes created yet. Please create one!
+</div>
+<% } %>
+
+<div class="container">
+  <div class="d-flex justify-content-between mb-3">
+
+    <a href="/notes/create" class="btn btn-success">Create New Note</a>
+
+    <form action="/user-logout" method="POST"><button type="submit" class="btn btn-primary btn-sm me-1">Logout</a></form>
+
+  </div>
+</div>
