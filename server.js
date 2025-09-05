@@ -18,13 +18,11 @@ app.use(session({
   cookie: { 
     secure: false, 
     httpOnly: true,
-    maxAge: 1000 * 60 * 20 
+    maxAge: 1000 * 60 * 30 
   }
 }));
 app.use(express.json());
-
 app.use(express.urlencoded({ extended: true }));
-
 app.set("view engine", "ejs");
 app.use(layout);
 

@@ -1,8 +1,8 @@
 <h2 class="mb-4 fw-bold text-warning">📋 Notes:
   <% if (user) { %>
-  <h1>For <%= user.userName %>!</h1>
+  <h2>Welcome: <%= user.userName %></h2>
   <% } else { %>
-  <h1>Welcome, guest!</h1>
+  <h2>Welcome, guest!</h2>
   <p>Please <a href="/login">log in</a></p>
   <% } %>
 </h2>
@@ -48,10 +48,7 @@
 
 <div class="container">
   <div class="d-flex justify-content-between mb-3">
-
     <a href="/notes/create" class="btn btn-success">Create New Note</a>
-
-    <form action="/user-logout" method="POST"><button type="submit" class="btn btn-primary btn-sm me-1">Logout</a></form>
-
   </div>
+
 </div>

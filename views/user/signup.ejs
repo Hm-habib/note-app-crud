@@ -3,7 +3,7 @@
     <div class="card shadow-lg rounded-4">
       <div class="card-body p-4">
         <h3 class="text-center mb-4">Sign Up</h3>
-        <form action="/user-signup" method="post">
+        <form action="/user-signup-ok" method="post">
           <!-- Username -->
           <div class="mb-3">
             <label for="userName" class="form-label">User Name</label>
@@ -37,13 +37,16 @@
             <textarea class="form-control" id="address" name="Address" rows="2" placeholder="Enter your address"
               required></textarea>
           </div>
-
           <!-- Submit Button -->
-          <div class="d-grid">
-            <button type="submit" class="btn btn-primary btn-lg">Sign Up</button>
+          <div class="d-flex justify-content-between me-3 mb-3">
+            <button type="submit" class="btn btn-primary p-3 w-50 me-3">Sign-Up</button>
+            <a href="/" class="btn btn-secondary p-3 w-50">Cancel</a>
           </div>
         </form>
 
+        <!-- <div class="d-grid">
+          <button type="submit" class="btn btn-primary btn-lg">Sign Up</button>
+        </div> -->
       </div>
     </div>
   </div>

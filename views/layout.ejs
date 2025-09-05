@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>note-app</title>
+    <title>Note App</title>
     <link rel="stylesheet" href="..css/styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
@@ -13,12 +13,26 @@
 <body>
 
 
-    <main class="container">
+    <div class="container mt-3">
+        <% if (typeof user !== 'undefined' && user.userName){ %>
+
+        <div class="d-flex justify-content-end me-3 mb-3">
+
+            <a href="user-dashboard" class="btn btn-info me-3 ">Show Profile</a>
+
+            <form action="/user-logout" method="POST"><button type="submit" class="btn btn-primary">Logout</a></form>
+
+
+        </div>
+        <% } %>
+
+
         <%- body %>
-    </main>
+    </div>
 
 
-
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous">

@@ -2,7 +2,7 @@ const { Schema, default: mongoose } = require("mongoose");
 const { encryptPassword } = require('../utilities/passwordEncrypt')
 
 const userSchema = new Schema({
-  userName: { type: String, required: true },
+  userName: { type: String,  unique: true, required: true },
   Email: {
     type: String,
     required: [true, "Please provide your Email address"],
