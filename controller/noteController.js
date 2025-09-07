@@ -19,7 +19,7 @@ const showAllNoteDB = async (req, res) => {
   res.render("notes/index", { items: allNotes, user: runningUser });
 };
 
-// login button welcome page
+// login button to login page
 const loginBtn = (req, res) => {
   res.render("user/login");
 }; 
